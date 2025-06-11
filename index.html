@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Garaly Group</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background-color: #f5ebdc;
+      color: #333;
+    }
+    header {
+      background-color: #4E342E;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+    header img {
+      width: 60px;
+      position: absolute;
+      left: 20px;
+      top: 20px;
+    }
+    header h1 {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5em;
+    }
+    nav {
+      background-color: #8E9775;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 10px 0;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    footer {
+      background-color: #4E342E;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 500px;
+    }
+    input, textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #8E9775;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #6f7c5f;
+    }
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8em;
+      }
+      nav a {
+        margin: 10px;
+      }
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const faders = document.querySelectorAll('.fade-in');
+      const options = {
+        threshold: 0.3
+      };
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, options);
+      faders.forEach(fader => observer.observe(fader));
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Garaly Logo">
+    <h1>Garaly Group</h1>
+    <p>Berakar pada keluarga, bertumbuh secara global</p>
+  </header>
+
+  <nav>
+    <a href="#tentang">Tentang</a>
+    <a href="#bisnis">Unit Bisnis</a>
+    <a href="#visi">Visi & Misi</a>
+    <a href="#kontak">Kontak</a>
+  </nav>
+
+  <section id="tentang" class="fade-in">
+    <h2>Tentang Kami</h2>
+    <p>Garaly Group berawal dari garasi kecil dengan semangat keluarga, kepercayaan, dan doa. Kami tumbuh menjadi grup usaha lintas sektor dengan visi jangka panjang lintas generasi.</p>
+  </section>
+
+  <section id="bisnis" class="fade-in">
+    <h2>Unit Bisnis</h2>
+    <ul>
+      <li>Properti & Konstruksi</li>
+      <li>Teknologi & Inovasi</li>
+      <li>F&B & Retail</li>
+      <li>Edukasi & Komunitas</li>
+    </ul>
+  </section>
+
+  <section id="visi" class="fade-in">
+    <h2>Visi & Misi</h2>
+    <p>Menjadi grup usaha yang tumbuh bersama nilai-nilai spiritual dan kekeluargaan, menciptakan dampak yang berkelanjutan bagi generasi mendatang.</p>
+  </section>
+
+  <section id="kontak" class="fade-in">
+    <h2>Hubungi Kami</h2>
+    <form action="https://formspree.io/f/your-form-id" method="POST">
+      <input type="text" name="name" placeholder="Nama Anda" required>
+      <input type="email" name="email" placeholder="Email Anda" required>
+      <textarea name="message" rows="5" placeholder="Pesan Anda" required></textarea>
+      <button type="submit">Kirim</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 Garaly Group. All rights reserved.
+  </footer>
+</body>
+</html>
